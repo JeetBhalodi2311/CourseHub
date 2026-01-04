@@ -1,0 +1,209 @@
+.course-header-container {
+    background-color: #1c1d1f;
+    color: white;
+    padding: 32px 0;
+}
+
+.course-header-content {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    /* Sidebar handling logic usually involves absolute positioning or grid, simplified here */
+    width: 65%;
+    /* Leave room for sidebar */
+}
+
+.course-breadcrumb {
+    font-size: 0.9rem;
+    color: #c0c4fc;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+.course-title-lg {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.course-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.course-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.rating-num {
+    font-weight: 700;
+    color: #f3ca8c;
+}
+
+.creator-row {
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+
+.creator-row a {
+    color: #c0c4fc;
+    text-decoration: underline;
+}
+
+.meta-row {
+    display: flex;
+    gap: 16px;
+    font-size: 0.9rem;
+}
+
+.course-body-container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    display: flex;
+    position: relative;
+}
+
+.course-main-content {
+    width: 65%;
+}
+
+.what-you-learn-box {
+    border: 1px solid var(--gray-200);
+    background-color: var(--white);
+    padding: 24px;
+    margin-bottom: 32px;
+}
+
+.learning-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.learning-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--heading-color);
+}
+
+.course-sidebar {
+    position: absolute;
+    top: -240px;
+    /* Pull into header */
+    right: 24px;
+    width: 340px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.sidebar-preview-img {
+    position: relative;
+    height: 190px;
+    cursor: pointer;
+}
+
+.sidebar-preview-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 16px;
+}
+
+.sidebar-content {
+    padding: 24px;
+}
+
+.price-large {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--heading-color);
+}
+
+.btn-primary-lg {
+    width: 100%;
+    height: 48px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.btn-secondary-lg {
+    width: 100%;
+    height: 48px;
+    background: white;
+    color: var(--heading-color);
+    border: 1px solid var(--heading-color);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.guarantee {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+}
+
+.includes-list h4 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.includes-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.includes-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1080px) {
+    .course-sidebar {
+        position: static;
+        width: 100%;
+        margin-bottom: 32px;
+    }
+
+    .course-body-container {
+        flex-direction: column-reverse;
+        /* Sidebar on top or bottom? on mobile usually bottom fixed or top */
+        /* desktop sidebar logic is complex, simplify for now */
+        display: block;
+    }
+
+    .course-header-content,
+    .course-main-content {
+        width: 100%;
+    }
+
+    .course-sidebar {
+        margin-top: 24px;
+    }
+}

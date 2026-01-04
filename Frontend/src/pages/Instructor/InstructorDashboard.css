@@ -1,0 +1,420 @@
+/* ============================================
+   InstructorDashboard.css - Premium Admin UI
+   ============================================ */
+
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px;
+    background: var(--bg-color);
+    min-height: 100vh;
+}
+
+/* Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 32px 40px;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+}
+
+.dashboard-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+.dashboard-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+/* Primary Button - Light Style */
+.btn-admin-primary,
+.dashboard-header .btn {
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    font-weight: 700;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.btn-admin-primary:hover,
+.dashboard-header .btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    /* padding: 28px 32px; */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(180deg, #6366f1, #a855f7);
+    border-radius: 4px 0 0 4px;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    /* margin-bottom: 14px; */
+}
+
+.stat-label svg {
+    color: #6366f1;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    line-height: 1;
+}
+
+.stat-trend {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Tables */
+.table-container {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.table-container h3 {
+    padding: 24px 32px 0;
+    margin: 0 0 0 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.table-controls {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: var(--card-bg);
+    flex-wrap: wrap;
+}
+
+.search-box {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+    min-width: 200px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-color);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+
+.search-input::placeholder {
+    color: var(--text-light);
+}
+
+.search-input:focus {
+    background-color: var(--card-bg);
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+.filter-select {
+    padding: 14px 20px;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    background-color: var(--card-bg);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+    border-color: #6366f1;
+    outline: none;
+}
+
+/* Admin Table */
+.admin-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.admin-table th {
+    background: var(--bg-color);
+    padding: 18px 32px;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table td {
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    vertical-align: middle;
+    background: var(--card-bg);
+}
+
+.admin-table tr:hover td {
+    background-color: rgba(99, 102, 241, 0.03);
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Course Cell */
+.course-cell {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.course-thumb {
+    width: 90px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-title {
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.course-meta {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+/* Badges */
+.status-badge {
+    display: inline-flex;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-active {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #065f46;
+}
+
+.status-draft {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e;
+}
+
+/* Action Buttons */
+.action-btn {
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--text-light);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+}
+
+/* Admin Cards */
+.admin-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-color);
+    margin-bottom: 24px;
+}
+
+/* Admin form elements */
+.admin-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.admin-input,
+.admin-textarea,
+.admin-select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.admin-input:focus,
+.admin-textarea:focus,
+.admin-select:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.admin-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-admin-secondary {
+    height: 44px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    font-weight: 600;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-admin-secondary:hover {
+    border-color: #6366f1;
+    color: #6366f1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 20px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 24px;
+    }
+
+    .table-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        max-width: 100%;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 16px 20px;
+    }
+
+    .course-thumb {
+        width: 60px;
+        height: 36px;
+    }
+}
