@@ -1,0 +1,516 @@
+/* CoursePlayerPage.css - Cinema Mode */
+
+:root {
+    --player-bg-dark: #1c1d1f;
+    --player-header-bg: #1c1d1f;
+
+    /* Map to specific global variables from index.css */
+    --sidebar-bg: var(--card-bg);
+    --text-primary: var(--text-color);
+    --text-secondary: var(--text-light);
+    --text-inverse: var(--white);
+    /* In dark mode this might need care, but usually cinema mode header is dark */
+
+    --brand-purple: var(--primary-color);
+    --brand-purple-hover: var(--primary-hover);
+
+    --border-light: var(--border-color);
+    --border-dark: #3e4143;
+}
+
+.course-player-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--player-bg-dark);
+    font-family: 'Udemy Sans', 'SF Pro Text', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+/* --- Header --- */
+.player-header {
+    height: 56px;
+    background-color: var(--player-header-bg);
+    color: var(--text-inverse);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--border-dark);
+    flex-shrink: 0;
+    z-index: 20;
+}
+
+.player-header-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    overflow: hidden;
+}
+
+.back-link {
+    color: var(--text-inverse);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+}
+
+.back-link:hover {
+    opacity: 1;
+}
+
+.player-course-title {
+    border-left: 1px solid var(--border-dark);
+    padding-left: 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-inverse);
+}
+
+/* --- Body Layout --- */
+.player-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--card-bg);
+}
+
+/* --- Main Content Area --- */
+.player-content {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    /* Custom Scrollbar for content */
+    scrollbar-width: thin;
+    scrollbar-color: #d1d7dc #f7f9fa;
+}
+
+.video-viewport {
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    /* This allows the video to be centered if we cap width */
+    flex-shrink: 0;
+}
+
+.video-container-cinema {
+    width: 100%;
+    max-width: 100%;
+    /* Can cap at 1400px if desired, but 100% is more 'cinema' */
+    aspect-ratio: 16 / 9;
+    position: relative;
+    background-color: black;
+}
+
+.video-iframe,
+.video-player {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #2d2f31 0%, #1c1d1f 100%);
+    color: var(--text-inverse);
+}
+
+.locked-overlay {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 10;
+    text-align: center;
+}
+
+/* --- Player Toolbar --- */
+.player-toolbar {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f9fa;
+}
+
+.toolbar-left {
+    flex: 1;
+    overflow: hidden;
+}
+
+.current-lecture-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.locked-badge {
+    font-size: 0.75rem;
+    color: #ce3434;
+    background: #fbecec;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.toolbar-right {
+    display: flex;
+    gap: 12px;
+}
+
+/* Action Buttons */
+.btn-action {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid var(--text-primary);
+    background-color: transparent;
+    color: var(--text-primary);
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+}
+
+.btn-action:hover {
+    background-color: rgba(45, 47, 49, 0.05);
+}
+
+.btn-action.active {
+    background-color: var(--text-primary);
+    color: #ffffff;
+}
+
+.icon-box {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+
+/* Lecture Details (Below Toolbar) */
+.lecture-details {
+    padding: 24px 32px;
+    max-width: 900px;
+    margin: 0;
+    /* Align left naturally or center if desired */
+}
+
+.lecture-details h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.lecture-details p {
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Simple Button Override */
+.btn-primary {
+    background-color: var(--brand-purple);
+    color: white;
+    border: none;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-purple-hover);
+}
+
+/* --- Sidebar --- */
+.player-sidebar {
+    width: 350px;
+    /* Slightly wider for better readability */
+    background-color: var(--sidebar-bg);
+    border-left: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, width 0.3s ease;
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.player-sidebar.closed {
+    width: 0;
+    border-left: none;
+    overflow: hidden;
+}
+
+.sidebar-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f9fa;
+}
+
+.sidebar-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.close-sidebar-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 4px 8px;
+}
+
+.close-sidebar-btn:hover {
+    color: var(--text-primary);
+}
+
+/* Sidebar List */
+.sidebar-lectures {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Scrollbar styling for sidebar */
+.sidebar-lectures::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar-lectures::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.sidebar-lectures::-webkit-scrollbar-thumb {
+    background: #d1d7dc;
+    border-radius: 4px;
+}
+
+.sidebar-lectures::-webkit-scrollbar-thumb:hover {
+    background: #a1a7b3;
+}
+
+/* Lecture Item */
+.sidebar-lecture-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    gap: 16px;
+    cursor: pointer;
+    background: var(--card-bg);
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.sidebar-lecture-item:hover {
+    background-color: var(--gray-100);
+    /* Very subtle hover grey */
+}
+
+/* Active State */
+.sidebar-lecture-item.active {
+    background-color: var(--card-bg);
+    /* Light subtle blue/gray mix used in some modern UIs, or just white */
+}
+
+/* Purple Highlight for Active */
+.sidebar-lecture-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--brand-purple);
+}
+
+.sidebar-lecture-item.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f7f9fa;
+}
+
+.sidebar-lecture-item .checkbox {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 2px;
+}
+
+.lecture-info-sm {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.lecture-num {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.sidebar-lecture-item.active .lecture-num {
+    font-weight: 700;
+    /* Bold active title */
+    color: var(--text-primary);
+}
+
+.lecture-duration {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lecture-duration svg {
+    width: 12px;
+    height: 12px;
+}
+
+/* No Lecture State */
+.no-lecture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    background-color: #f7f9fa;
+}
+
+/* Sidebar Tabs */
+.sidebar-tabs {
+    display: flex;
+    align-items: center;
+    background-color: #f7f9fa;
+    border-bottom: 1px solid var(--border-light);
+    padding: 0 10px;
+}
+
+.tab-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    color: var(--text-primary);
+    border-bottom-color: var(--brand-purple);
+}
+
+.sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Notes Section */
+.sidebar-notes {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notes-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.note-status {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.note-textarea {
+    flex: 1;
+    width: 100%;
+    resize: none;
+    padding: 12px;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #ffffff;
+    min-height: 200px;
+}
+
+.note-textarea:focus {
+    outline: none;
+    border-color: var(--brand-purple);
+}
+
+.save-note-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+}
+
+.notes-info {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+}
+
+.notes-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}

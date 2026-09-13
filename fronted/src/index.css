@@ -1,0 +1,78 @@
+:root {
+    --primary-color: #a435f0;
+    --primary-hover: #8710d8;
+    --text-color: #2d2f31;
+    --text-light: #6a6f73;
+    --heading-color: #1c1d1f;
+    --bg-color: #ffffff;
+    --gray-100: #f7f9fa;
+    --gray-200: #d1d7dc;
+    --gray-300: #6a6f73;
+    --gray-400: #1c1d1f;
+    --white: #ffffff;
+    --black: #000000;
+    --warning: #fca400;
+    /* Rating stars */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+    --font-heading: 'SuisseWorks', Georgia, Times, 'Times New Roman', serif;
+    --font-text: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Light Mode defaults */
+    --card-bg: #ffffff;
+    --navbar-bg: #ffffff;
+    --border-color: #d1d7dc;
+}
+
+[data-theme='dark'] {
+    --primary-color: #b057f2;
+    /* Slightly lighter purple for dark mode */
+    --primary-hover: #9e46e3;
+    --text-color: #e3e3e3;
+    --text-light: #a0a0a0;
+    --heading-color: #ffffff;
+    --bg-color: #121212;
+    --gray-100: #1e1e1e;
+    --gray-200: #2d2d2d;
+    --gray-300: #a0a0a0;
+    --gray-400: #e3e3e3;
+    --white: #1e1e1e;
+    /* Contextual white becomes dark */
+    --black: #ffffff;
+    --card-bg: #1e1e1e;
+    --navbar-bg: #1c1d1f;
+    --border-color: #3e4143;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--heading-color);
+    margin-top: 0;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
